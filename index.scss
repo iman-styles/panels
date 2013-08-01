@@ -1,0 +1,191 @@
+@function panels-image-url($path) {
+  @return component-url('iman-styles-common', "local/panels/assets/#{$path}");
+}
+
+// Basic box style.
+// @section 3.0
+.panel {
+  background-color: #fff;
+}
+
+// Makes a panel look depressed
+// @section 3.0
+// @modifier
+.panel--inset {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2) inset;
+}
+
+.panel--outset {
+  box-shadow: 0 0 4px rgba(#000, 0.5);
+
+  .no-boxshadow & {
+    border: 1px solid $border-color;
+  }
+}
+
+// Panel with a grey background
+// @section 3.0
+// @modifier
+.panel--light {
+  background-color: #f9f9f9;
+  .panel--light {
+    background-color: #ddd;
+  }
+}
+
+// Panel with a darker grey background
+// @section 3.0
+// @modifier
+.panel--grey {
+  @extend .panel--bordered;
+  background: #eee;
+}
+
+// Inverse panel
+// @modifier
+.panel--dark {
+  @include improve-text-rendering;
+  background: $blue-light;
+  color: #fff;
+  position: relative;
+
+  &.panel--dark-bordered {
+    border: 4px solid #fff;
+  }
+
+  .panel--dark-title {
+    background: lighten($blue-light, 5);
+  }
+}
+
+// Add a border to the panel
+// @modifier
+.panel--bordered {
+  border: 1px solid $border-color;
+}
+
+// Panel for hospital-related content
+// @section 3.0
+// @modifier
+.panel--hospital {
+  //background: $light-blue;
+  border: 0;
+  color: #fff;
+}
+
+// Panel for extras-related content
+// @section 3.0
+// @modifier
+.panel--extras {
+  //background: $extras-color;
+  border: 0;
+  color: #fff;
+}
+
+// Closeable panel style. If a btn-close exists
+// within it, it is positioned in the top right
+// @modifier
+.panel--closeable {
+  position: relative;
+  .btn-close {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+  }
+}
+
+// Panel for important content
+// @section 3.0
+// @modifier
+.panel--important {
+  //background: $orange;
+  color: #fff;
+  border: 0;
+}
+
+// Center align the text in a panel
+// @section 3.0
+// @modifier
+.panel--center {
+  text-align: center;
+}
+
+// Right align the text in a panel
+// @section 3.0
+// @modifier
+.panel--right {
+  text-align: right;
+}
+
+// Adds a back icon to the panel
+// @modifier
+.panel--back {
+  background-position: 20px center;
+  background-repeat: no-repeat;
+}
+
+// Jigsaw bit
+.panel--jigsaw {
+  position: relative;
+  &:after {
+    @include show-pseudo-element;
+    height: 13px;
+    width: 25px;
+    border-radius: 20px 20px 0 0;
+    border: 1px solid $border-color;
+    border-bottom: 0;
+    position: absolute;
+    left: 50%;
+    margin-left: -15px;
+    top: auto;
+    bottom: -1px;
+    background: #fff;
+  }
+
+  .no-csstransitions & {
+    &:after {
+      background-color: transparent;
+      background-position: 0 28px;
+      border: 0;
+      border-radius: none;
+      height: 14px;
+      width: 31px;
+    }
+  }
+}
+
+.panel-terms {
+  background: $green-dark;
+  border-radius: 5px;
+}
+
+.panel-product {
+  background: #444;
+  color: #fff;
+  overflow: hidden;
+
+  .summary {
+    float: left;
+    padding: 20px 30px;
+  }
+
+  .summary .title {}
+
+  .total {
+    background: $orange;
+    float: right;
+    padding: 20px 30px;
+  }
+
+  .total .price {}
+
+  .total .frequency {
+    font-size: 12px;
+  }
+}
+
+.sub-form-panel {
+  @extend .panel--light;
+  @extend .panel--bordered;
+  border-top: 3px solid #ddd;
+}
