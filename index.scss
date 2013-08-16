@@ -64,6 +64,17 @@
   border: 1px solid $border-color;
 }
 
+.panel--bordered-bottom {
+  border-bottom: 4px solid $border-color;
+}
+
+// Add a dropshadow to the panel
+// @modifier
+.panel--shadow {
+  box-shadow: 0 3px 2px rgba(#000, 0.02);
+}
+
+
 // Panel for hospital-related content
 // @section 3.0
 // @modifier
@@ -124,39 +135,14 @@
   background-repeat: no-repeat;
 }
 
-// Jigsaw bit
-.panel--jigsaw {
-  position: relative;
-  &:after {
-    @include show-pseudo-element;
-    height: 13px;
-    width: 25px;
-    border-radius: 20px 20px 0 0;
-    border: 1px solid $border-color;
-    border-bottom: 0;
-    position: absolute;
-    left: 50%;
-    margin-left: -15px;
-    top: auto;
-    bottom: -1px;
-    background: #fff;
-  }
-
-  .no-csstransitions & {
-    &:after {
-      background-color: transparent;
-      background-position: 0 28px;
-      border: 0;
-      border-radius: none;
-      height: 14px;
-      width: 31px;
-    }
-  }
-}
-
 .panel-terms {
   background: $green-dark;
   border-radius: 5px;
+}
+
+.panel--anchor {
+  text-decoration: none;
+  color: #444;
 }
 
 .panel-product {
