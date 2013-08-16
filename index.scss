@@ -1,5 +1,5 @@
 @function panels-image-url($path) {
-  @return component-url('iman-styles-common', "local/panels/assets/#{$path}");
+  @return url("../components/iman-styles-panels/assets/#{$path}");
 }
 
 // Basic box style.
@@ -174,4 +174,25 @@
   @extend .panel--light;
   @extend .panel--bordered;
   border-top: 3px solid #ddd;
+}
+
+.panel-white {
+  background: white;
+  box-shadow: 0 2px 2px rgba(black, 0.2);
+}
+
+.panel-rounded {
+  border-radius: 3px;
+}
+
+.panel-white-transparent {
+  background: panels-image-url('white-10.png');
+  background: rgba(white, 0.1);
+  color: white;
+}
+
+.panel-black-transparent {
+  background: panels-image-url('black-25.png');
+  background: rgba(black, 0.25);
+  color: white;
 }
